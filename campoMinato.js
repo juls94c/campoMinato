@@ -1,30 +1,53 @@
-const prompt=require('prompt-sync')();
+//const prompt=require('prompt-sync')();
 
 let posizioneBomba=3;
 let posizioneGiocatore=prompt("scegli posizione");
-
-const array=[10];
+let randomIndex;
+const array=[1,1,1,1];
 const length=array.length-1;
 
-const controlloBomba=(array, posizioneBomba,length)=>{
+
+randomIndex = Math.floor(Math.random() * posizioneBomba);
+const inserisciBomba=(array,posizioneBomba)=>{
+ 
+      for(let i=0; i < length; i++)
+  
+ {
+    
+
+       array.splice(randomIndex, 1, posizioneBomba)
+      
+    }
+
+}
+ inserisciBomba(array,posizioneBomba);
+  console.log(array);
+
+
+const controlloBomba=(array)=>{
         
     for(let i=0;i<=length;i++)
     {
-    if(posizioneBomba==posizioneGiocatore)
+      
+    if(array[posizioneBomba]==array[posizioneGiocatore]){
         console.log("hai perso");
-      else 
-        console.log('Continua');
+        return true;
     }
- 
+      else 
+        {
+        
+        console.log('Continua');
+          return false;
+    }
+    }
 
 }
-controlloBomba(array, posizioneBomba,length);
+controlloBomba(array);
 
+/*
+const controlloVincita=(array)=>{
+  let i=0;
+  while(array[i]==1)
 
-
-const controlloVincita=(array, posizioneBomba,length)=>{
-
-
-    
-}
+}*/
 
